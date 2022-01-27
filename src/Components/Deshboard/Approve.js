@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Container, Table } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import useAuth from '../../Hooks/useAuth';
 
@@ -9,7 +10,7 @@ const Approve = () => {
         find:"done"
     }
     const handleUpdate = (id) => {
-        fetch(`http://localhost:5000/addPost/${id}`, {
+        fetch(`https://shrouded-reaches-91656.herokuapp.com/addPost/${id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -20,7 +21,7 @@ const Approve = () => {
             .then(res => {
                 console.log("okkk");
                 if (res.modifiedCount) {
-                    fetch(`http://localhost:5000/addPost/pre`)
+                    fetch(`https://shrouded-reaches-91656.herokuapp.com/addPost/pre`)
                         .then(res => res.json())
                         .then(data => {
                             setPostAll(data)
@@ -42,7 +43,7 @@ const Approve = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/addPost/${id}`, {
+                fetch(`https://shrouded-reaches-91656.herokuapp.com/addPost/${id}`, {
                     method: "DELETE"
                 })
                     .then(ress => ress.json())
@@ -64,7 +65,8 @@ const Approve = () => {
                 <tr>
                     <th>#</th>
                     <th>Tour Name</th>
-                    <th>Update</th>
+                    <th>Approve</th>
+                    <th>Delete</th>
                    
                 </tr>
             </thead>
@@ -80,6 +82,7 @@ const Approve = () => {
 
                             <td className='text-white'><button className="btn btn-outline-success" onClick={() => handleUpdate(item?._id)}>Approve Now</button></td>
                             <td><button className="btn btn-danger" onClick={()=> handleCancel(item?._id)}>Cancel</button></td>
+                            {/* <td><Link className="btn btn-danger" to={`addPost/${item?._id}`}  >Update</Link></td> */}
                             
                             
                     </tr>

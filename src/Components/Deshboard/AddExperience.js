@@ -12,7 +12,7 @@ const AddExperience = () => {
         if (admin.role) {
             console.log(data);
             data.find = "done";
-            axios.post("http://localhost:5000/addPost", data).then((res) => {
+            axios.post("https://shrouded-reaches-91656.herokuapp.com/addPost", data).then((res) => {
             if (res.data.insertedId) {
                 trySuccessAlart("Done", "Your data has been added", "success")
                 reset()
@@ -25,7 +25,7 @@ const AddExperience = () => {
         }
         else {
             data.find="pre"
-            axios.post("http://localhost:5000/addPost", data).then((res) => {
+            axios.post("https://shrouded-reaches-91656.herokuapp.com/addPost", data).then((res) => {
             if (res.data.insertedId) {
                 trySuccessAlart("Done", "Your data has been added", "success")
                 reset()

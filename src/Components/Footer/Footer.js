@@ -3,15 +3,15 @@ import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import { useForm } from "react-hook-form";
 import useAuth from '../../Hooks/useAuth';
-
 import './Footer.css';
+
 
 const Footer = () => {
     const { register, reset, handleSubmit } = useForm();
     const { trySuccessAlart } = useAuth()
 
     const onSubmit = data => {
-        axios.post("http://localhost:5000/newsLetter", data)
+        axios.post("https://shrouded-reaches-91656.herokuapp.com/newsLetter", data)
             .then(res => {
                 if (res.data.insertedId) {
                     trySuccessAlart("Congratulations!", "Your data successfully Added", "success")

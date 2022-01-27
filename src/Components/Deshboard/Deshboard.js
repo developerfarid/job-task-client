@@ -13,7 +13,7 @@ const Deshboard = () => {
                     
                         <ul style={{marginTop:"120px", zIndex:"111"}}>
                             {/* <Link className='btn btn-outline-info d-block my-1  fs-5' to='/deshboard'>WelCome Info </Link> */}
-                            <Link className='btn btn-outline-info d-block my-1  fs-5' to='/deshboard/addPost'>Add Post</Link>
+                            {/* <Link className='btn btn-outline-info d-block my-1  fs-5' to='/deshboard/addPost'>Add Post</Link> */}
                             <Link className='btn btn-outline-info d-block my-1  fs-5' to='/deshboard/add'>Add Travel Experience</Link>
                             {(user?.email && admin?.role) && <Link className='btn btn-outline-info d-block my-1  fs-5' to='/deshboard/makeAdmin'>Make Admin </Link>}
                             {(user?.email && admin?.role) && <Link className='btn btn-outline-info d-block my-1  fs-5' to='/deshboard/approve'>Approve Post </Link>}

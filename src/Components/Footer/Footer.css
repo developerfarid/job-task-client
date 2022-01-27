@@ -9,3 +9,12 @@
 footer {
   z-index: 10000 !important;
 }
+.footer-item input {
+  color: white;
+}
+.footer-item form {
+  padding: 15px;
+}
+.footer-item ::placeholder {
+  color: white;
+}

@@ -8,7 +8,7 @@ const MakeAdmin = () => {
  const {trySuccessAlart }=   useAuth()
     const { register, handleSubmit,reset, watch, formState: { errors } } = useForm();
     const onSubmit = data => {
-        axios.put("http://localhost:5000/user/admin", data).then(res => {
+        axios.put("https://shrouded-reaches-91656.herokuapp.com/user/admin", data).then(res => {
           if (res.data.modifiedCount) {
               trySuccessAlart("Success", "You make a Admin", "success")
               reset()

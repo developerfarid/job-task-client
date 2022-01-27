@@ -1,4 +1,3 @@
-import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
@@ -7,7 +6,7 @@ const PostCard = () => {
   const [data, setData] = useState([])
     const { id } = useParams()
     useEffect(() => {
-        fetch(`http://localhost:5000/addPost/${id}`).then(re=> re.json()).then(res => setData(res))
+        fetch(`https://shrouded-reaches-91656.herokuapp.com/addPost/${id}`).then(re=> re.json()).then(res => setData(res))
     },[])
     console.log(data);
     return (

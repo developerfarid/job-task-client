@@ -1,8 +1,9 @@
 
+import axios from "axios";
 import { createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, onAuthStateChanged, sendPasswordResetEmail, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import { useEffect, useState } from 'react';
 import Swal from 'sweetalert2';
-import FirebaseInit from "../Components/firebaseInfo/FirebaseInit"
+import FirebaseInit from "../Components/firebaseInfo/FirebaseInit";
 
  FirebaseInit()
 
@@ -34,10 +35,10 @@ const AllData = () => {
                 trySuccessAlart("Opps!", "Something Worng", "error")
             }).finally(() => setLoding(false))
     }
-
+    
     useEffect(() => {
 
-        fetch(`http://localhost:5000/user/${user.email}`)
+        fetch(`https://shrouded-reaches-91656.herokuapp.com/user/${user.email}`)
             .then(res => res.json())
             .then(data => setAdmin(data[0]))
     }, [user.email])
@@ -80,7 +81,7 @@ const AllData = () => {
         const user = {
             email, displayName
         }
-        fetch("http://localhost:5000/user", {
+        fetch("https://shrouded-reaches-91656.herokuapp.com/user", {
             method: type,
             "headers": {
                 "content-type": "application/json"
@@ -161,14 +162,14 @@ const AllData = () => {
     }
 
     useEffect(() => {
-        fetch("http://localhost:5000/post").then(res => res.json()).then(data => setProduct(data))
+        fetch("https://shrouded-reaches-91656.herokuapp.com/post").then(res => res.json()).then(data => setProduct(data))
     }, [])
   
     useEffect(() => {
-        fetch("http://localhost:5000/addPost/find").then(res => res.json()).then(data => setPost(data))
+        fetch("https://shrouded-reaches-91656.herokuapp.com/addPost/find").then(res => res.json()).then(data => setPost(data))
     }, [post])
     useEffect(() => {
-        fetch("http://localhost:5000/addPost/pre").then(res => res.json()).then(data => setPostAll(data))
+        fetch("https://shrouded-reaches-91656.herokuapp.com/addPost/pre").then(res => res.json()).then(data => setPostAll(data))
     }, [postAll])
 
   

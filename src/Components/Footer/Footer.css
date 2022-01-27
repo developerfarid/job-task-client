@@ -1,0 +1,11 @@
+.footer-item ul li {
+  transition: 0.3s all linear;
+  font-size: 600;
+}
+.footer-item ul li:hover {
+  color: crimson;
+  transform: translateX(-10px);
+}
+footer {
+  z-index: 10000 !important;
+}
